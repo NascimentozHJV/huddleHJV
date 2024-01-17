@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %}
+Nova Atualizacao
+{% endblock title %}
+
+
+{% block content %}
+    <form method="post">
+            {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+        <button onclick="voltar()" class="btn btn-primary">
+            Voltar
+        </button>
+    </form>
+
+    <script>
+        function voltar(){
+            history.back()
+        }
+    </script>
+{% endblock content %}

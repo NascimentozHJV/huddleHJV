@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    {% include "atualizacao_view_style.html" %}
+{% endblock style %}
+
+{% block title %}
+Huddle Engenharia Clínica HJV
+{% endblock title %}
+
+{% block content %}
+    {% include "atualizacao_view_base.html" %}
+    <script>
+        function irPendenciaViewSetor()
+        {
+            location.href = "/pendenciasSetor/" + {{ idSetor }};
+        }   
+    </script>
+{% endblock content %}

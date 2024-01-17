@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Huddle Engenharia Clínica HJV
+{% endblock title %}
+
+{% block content %}
+    {% include "nav_breadcrumb.html" %}
+    {% include "pendencia_view_tabela.html" %}
+    <script>
+        function abrirPendencia(elemento){
+            idPendencia = elemento.children.item(0).textContent;
+            location.href = "/adm/atualizacaoSetor/" + idPendencia;
+        }
+        function buttonVerConcluidas(){
+            location.href = "/adm/pendenciasSetorConcluidas/" + {{ idSetor }}
+        }
+        function buttonVerPendentes(){
+            location.href = "/adm/pendenciasSetor/" + {{ idSetor }}
+        }
+    </script>
+{% endblock content %}

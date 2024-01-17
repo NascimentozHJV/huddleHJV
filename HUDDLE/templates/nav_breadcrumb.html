@@ -1,0 +1,62 @@
+<style>
+    button {
+        position: absolute;
+        right: 1%;
+        top: 10.3%;
+    }
+
+    #buttonAtualizacao1{
+        position: absolute;
+        right: 1%;
+        top: 10.3%;
+    }
+
+    #buttonAtualizacao2{
+        position: absolute;
+        right: 14%;
+        top: 10.3%;
+    }
+
+    .button-azul {
+        color: #001FFF;
+    }
+
+    .button-azul:hover {
+        color: white;
+        background-color: #001FFF; 
+    }
+
+    #button-verde {
+    color: #23dd55;
+    }
+
+    #button-verde:hover {
+    color: white;
+    background-color: #23dd55; 
+    }
+</style> 
+<nav aria-label="">
+    <ol class="breadcrumb">
+        {% if adm == "1" %}
+            <li class="breadcrumb-item"><a href="/adm">Home</a></li>
+        {% else %}
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+        {% endif %}
+        
+        <li class="breadcrumb-item" id="breadcrumb" onclick="irPendenciaViewSetor()">{{ setorAtual }}</li>
+
+        {% if button_contexto == "home_ADM" %}
+            <button class="btn btn-outline-primary btn-sm button-azul" type="button" id="" onclick="buttonPendencia()">Adicionar Pendência</button>
+        {% endif %}
+        {% if button_contexto == "todas_pendencias_setor_pendentes" %}
+            <button class="btn btn-outline-success btn-sm" type="button" id="" onclick="buttonVerConcluidas()">Ver Concluídas</button>
+        {% endif %}
+        {% if button_contexto == "todas_pendencias_setor_concluidas" %}
+            <button class="btn btn-outline-warning btn-sm" type="button" id="" onclick="buttonVerPendentes()">Ver Pendentes</button>
+        {% endif %}
+        {% if button_contexto == "pendencia_detalhes" %}
+            <button class="btn btn-outline-primary btn-sm button-azul" type="button" id="buttonAtualizacao1" onclick="buttonAtualizacao(1)">Adicionar Atualização</button>
+            <button class="btn btn-outline-primary btn-sm button-azul" type="button" id="buttonAtualizacao2" onclick="buttonAtualizacao(2)">Alterar Estado</button>
+        {% endif %}
+    </ol>
+</nav>

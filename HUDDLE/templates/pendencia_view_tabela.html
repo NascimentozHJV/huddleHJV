@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th>INÍCIO</th>
+            <th class="td-center">PATRIMÔNIO</th>
+            <th class="td-center" scope="col">EQUIPAMENTO</th>
+            <th class="td-center">ESTADO</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pendencia in pendencias %}
+            <tr onclick="abrirPendencia(this)">
+                <td>{{ pendencia.id }}</td>
+                <td> {{ pendencia.dataInicio|date:"SHORT_DATE_FORMAT" }} </td>
+                <td class="td-center">{{ pendencia.patrimonio }}</td>
+                <td class="td-center">{{ pendencia.equipamento }}</td>
+                <td class="td-center">{{ pendencia.estado }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

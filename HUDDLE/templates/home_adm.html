@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Huddle Engenharia Clínica HJV
+{% endblock title %}
+
+{% block content %}
+
+    {% include "nav_breadcrumb.html" %}
+
+    {% include "tabela_home.html" %}
+    
+    <script>
+        function cliclou(linha) {
+            location.href = "/adm/pendenciasSetor/" + linha;
+        }
+        function buttonPendencia(){
+            location.href = "/cadastrarPendencia"
+        }
+    </script>
+{% endblock content %}

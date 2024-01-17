@@ -1,0 +1,83 @@
+{% include "nav_breadcrumb.html" %}
+<div id="dadosPendencia">
+    <!--<table class="table table-borderless table-sm">
+        <tbody>
+            <tr>
+                <td id="idAtual">ID: {{pendencia.id}}</td>
+                <td>Solicitaçao: {{ pendencia.numeroSolicitacao }}</td>
+            </tr>
+            <tr>
+                <td>Patrimônio: {{ pendencia.patrimonio }}</td>
+                <td>Equipamento: {{ pendencia.equipamento }}</td>
+            </tr>
+            <tr>
+                <td>Setor: {{ setorAtual }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">Descrição: {{ pendencia.descricao }}</td>
+            </tr>
+            <tr>
+                <td>Data Início: {{ pendencia.dataInicio|date:"SHORT_DATE_FORMAT" }}</td>
+                <td>Data fim: {{ pendencia.dataFim|date:"SHORT_DATE_FORMAT"|default:"(PENDÊNCIA NÃO CONCLUÍDA)" }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <span><p>Estado: {{ pendencia.estado }} </p></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>-->
+
+    <div>
+        <p class="nobreak" id="idAtual">ID: {{pendencia.id}}</p>
+        <p class="nobreak">Solicitaçao: {{ pendencia.numeroSolicitacao }}</p>
+    </div>
+    <div>
+        <p  class="nobreak">Setor: {{ setorAtual }}</p>
+    </div>
+    <div>
+        <p class="nobreak">Patrimônio: {{ pendencia.patrimonio }}</p>
+        <p class="nobreak">Equipamento: {{ pendencia.equipamento }}</p>
+    </div>
+    <div>
+        <p  class="nobreak">Data Início: {{ pendencia.dataInicio|date:"SHORT_DATE_FORMAT" }}</p>
+        <p  class="nobreak">Data fim: {{ pendencia.dataFim|date:"SHORT_DATE_FORMAT"|default:"(PENDÊNCIA NÃO CONCLUÍDA)" }}</p>
+    </div>
+    <div>
+        <p  class="nobreak">Previsão: {{ pendencia.previsaoDeConclusao|date:"SHORT_DATE_FORMAT" }}</p>
+    </div>
+    <div>
+        <p class="nobreak" id="estado">Estado: {{ pendencia.estado }} </p>
+    </div>
+    <div>
+        <p>Descrição: <span>{{ pendencia.descricao }}</span></p>
+    </div>
+
+</div>
+
+
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">DATA</th>
+            <th>ATUALIZAÇÃO</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for atualizacao in atualizacoes %}
+            <tr>
+                <td>{{ atualizacao.dataAtualizacao }}</td>
+                <td>{{ atualizacao.textoAtualizacao }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    function irPendenciaViewSetor()
+    {
+        location.href = "/adm/pendenciasSetor/" + {{ idSetor }};
+    }
+</script>
